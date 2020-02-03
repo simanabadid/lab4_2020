@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Andriod Labs</string>
+    <string name="yourEmail">Enter your email address: </string>
+    <string name="typeEmail">Type your email here</string>
+    <string name="yourPassword">Type your password</string>
+    <string name="typePassword">" " </string>
+    <string name="logIn">LOGIN</string>
+    <string name="yourProfile">Your profile</string>
+    <string name="yourName">Your name: </string>
+    <string name="typeName">Enter your name</string>
+    <string name="yourPic">Your picture: </string>
+    <string name="yourInfoEmail">Your email: </string>
+    <string name="chatbutton"> Go to Chat </string>
+    <string name="type_here"> Type Here </string>
+    <string name="recieve"> Recieve </string>
+    <string name="send"> Send</string>
+
+
+</resources>

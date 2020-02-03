@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Labs Android</string>
+    <string name="yourEmail">Entrez votre adresse email: </string>
+    <string name="typeEmail">Tapez votre email ici</string>
+    <string name="yourPassword">Tapez votre mot de passe</string>
+    <string name="typePassword">" " </string>
+    <string name="logIn">SIDENTIFIER </string>
+    <string name="yourProfile">Votre profil</string>
+    <string name="yourName"> Votre nom:</string>
+    <string name="typeName">Entrez votre nom</string>
+    <string name="yourPic">Ta photo: </string>
+    <string name="yourInfoEmail">Votre email:</string>
+    <string name="chatbutton"> bouton de chat</string>
+    <string name="type_here"> Écrivez ici </string>
+    <string name="recieve">Recevoir </string>
+    <string name="send">Envoyer</string>
+</resources>

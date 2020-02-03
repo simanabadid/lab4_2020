@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+     >
+    <TextView
+        android:id="@+id/enterEmail"
+        android:gravity="fill"
+        android:textSize="30dp"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="40dp"
+        android:text="@string/yourEmail" />
+    <EditText
+        android:id="@+id/email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/enterEmail"
+        android:textSize="20dp"
+        android:hint="@string/typeEmail"
+        android:inputType="textEmailAddress"
+       />
+    <TextView
+        android:id="@+id/enterPassword"
+        android:gravity="fill"
+        android:textSize="20dp"
+        android:layout_below="@id/email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:hint="@string/yourPassword" />
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+       android:layout_below="@id/enterPassword"
+        android:inputType="textPassword"
+        android:hint=" "/>
+
+    <Button
+        android:id="@+id/log_in_butt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/password"
+        android:gravity="fill"
+        android:textSize="30dp"
+        android:textAlignment="center"
+        android:layout_marginBottom="-50dp"
+        android:hint="@string/logIn" />
+
+
+</RelativeLayout>
