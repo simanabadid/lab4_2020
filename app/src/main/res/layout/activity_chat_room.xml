@@ -11,7 +11,7 @@
         android:layout_height="match_parent"
         android:transcriptMode="alwaysScroll"
         android:layout_above="@id/SendBtn">
-
+        onItemLongClick()
     </ListView>
 
     <Button

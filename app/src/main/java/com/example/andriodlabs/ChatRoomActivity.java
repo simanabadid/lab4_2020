@@ -1,6 +1,7 @@
 package com.example.andriodlabs;
 
 import android.content.Context;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -66,7 +67,24 @@ public class ChatRoomActivity extends AppCompatActivity {
             }
         });
 
+        listView.setOnItemLongClickListener( (p, b, position, id) -> {
+            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+            alertDialogBuilder.setTitle("Do you want to delete this?")
+                    .setPositiveButton("Yes", (click, arg) -> {
+                        msgList.remove(position);
+                        ChatAdapter myAdapter = new ChatAdapter(msgList,getApplicationContext());
+                        listView.setAdapter(myAdapter);
+                    })
+                    //What the No button does:
+                    .setNegativeButton("No", (click, arg) -> { })
+                    .setMessage("The selected row is "+position +"\nThe database id is "+id)
+                    .setView(getLayoutInflater().inflate(R.layout.alert_dialog, null) )
 
+                    //Show the dialog
+                    .create().show();
+
+            return true;
+        });
     }
 }
 
