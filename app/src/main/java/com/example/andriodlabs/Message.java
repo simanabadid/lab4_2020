@@ -1,42 +1,36 @@
+
+
 package com.example.andriodlabs;
 
-public class Message {
+public class Message{
+    String message;
+    boolean send;
+    long id;
 
-    private String msg;
-    private boolean isSend;
-    private long msgID;
-
-    public Message(String msg, boolean isSend, long msgID) {
-        this.msg = msg;
-        this.isSend = isSend;
-        this.msgID = msgID;
+    public Message(String s, boolean b , long i)
+    {
+        setMessage(s);
+        setSend(b);
+        id = i;
     }
 
-    public Message(String msg, boolean isSend) {
-        this(msg, isSend,0);
+    public void setMessage(String message){
+        this.message = message;
     }
 
-    public String getMsg() {
-        return msg;
+    public void setSend(boolean send){
+        this.send = send;
     }
 
-    public void setMsg(String msg) {
-        this.msg = msg;
+    public String getMessage(){
+        return message;
     }
 
-    public boolean isSend() {
-        return isSend;
+    public Boolean getSend(){
+        return send;
     }
 
-    public void setSend(boolean send) {
-        isSend = send;
-    }
-
-    public long getMsgID(){
-        return msgID;
-    }
-
-    public void setMsgID(long msgId){
-        this.msgID = msgID;
+    public Long getId(){
+        return id;
     }
 }
