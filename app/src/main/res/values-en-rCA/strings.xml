@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Andriod Labs</string>
+    <string name="app_name">Android Labs</string>
     <string name="yourEmail">Enter your email address: </string>
     <string name="typeEmail">Type your email here</string>
     <string name="yourPassword">Type your password</string>
@@ -13,7 +13,7 @@
     <string name="yourInfoEmail">Your email: </string>
     <string name="chatbutton"> Go to Chat </string>
     <string name="type_here"> Type Here </string>
-    <string name="recieve"> Recieve </string>
+    <string name="recieve"> Receive </string>
     <string name="send"> Send</string>
 
 </resources>

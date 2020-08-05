@@ -1,9 +1,13 @@
 package com.example.andriodlabs;
 
 import android.content.Context;
+import android.database.Cursor;
+import android.database.DatabaseUtils;
+import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,6 +27,7 @@ public class ChatRoomActivity extends AppCompatActivity {
     List<Message> msgList = new ArrayList<>();
     Button btnSend;
     Button btnReceive;
+    DatabaseHelper db;
 
 
     @Override
@@ -35,20 +40,22 @@ public class ChatRoomActivity extends AppCompatActivity {
         btnSend = (Button)findViewById(R.id.SendBtn);
         btnReceive = (Button)findViewById(R.id.ReceiveBtn);
 
-        btnSend.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        btnSend.setOnClickListener(c -> {
 
-                String sendMessage = editText.getText().toString();
+                     String sendMessage = editText.getText().toString();
                 if ( !sendMessage.equals("")){
-                    Message model = new Message(sendMessage, true);
-                    msgList.add(model);
-
-                    ChatAdapter adt = new ChatAdapter(msgList, getApplicationContext());
-                    listView.setAdapter(adt);
+                    db.insertData(sendMessage, true);
                     editText.setText("");
+                    msgList.clear();
+                    //Message model = new Message(sendMessage, true);
+                   // msgList.add(model);
+                    viewData();
+
+                    //ChatAdapter adt = new ChatAdapter(msgList, getApplicationContext());
+                    //listView.setAdapter(adt);
+                    //editText.setText("");
                 }
-            }
+
         });
 
         btnReceive.setOnClickListener(new View.OnClickListener() {
@@ -86,49 +93,22 @@ public class ChatRoomActivity extends AppCompatActivity {
             return true;
         });
     }
-}
 
-class ChatAdapter extends BaseAdapter{
-
-    private List<Message> messageModels;
-    private Context context;
-    private LayoutInflater inflater;
-
-    public ChatAdapter(List<Message> messageModels, Context context) {
-        this.messageModels = messageModels;
-        this.context = context;
-        this.inflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-    }
-
-    @Override
-    public int getCount() {
-        return messageModels.size();
-    }
-
-    @Override
-    public Object getItem(int position) {
-        return messageModels.get(position);
-    }
-
-    @Override
-    public long getItemId(int position) {
-        return position;
-    }
-
-    @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
-        View view = convertView;
-
-        if (view == null){
-            if (messageModels.get(position).isSend()){
-                view = inflater.inflate(R.layout.activity_send, null);
-
-            }else {
-                view = inflater.inflate(R.layout.activity_receive, null);
-            }
-            TextView messageText = (TextView)view.findViewById(R.id.messageText);
-            messageText.setText(messageModels.get(position).getMsg());
-        }
-        return view;
+    //view data
+    public void viewData(){
+     Cursor cursor = db.viewData();
+     if(cursor.getCount() !=0){
+         while (cursor.moveToNext()){
+             Message msg = new Message(cursor.getString(1), cursor.getInt(2)== 0? true:false);
+             msgList.add(msg);
+             ChatAdapter adt = new ChatAdapter(msgList, getApplicationContext());
+             listView.setAdapter(adt);
+         }
+     }
     }
 }
+
+
+
+
+

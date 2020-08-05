@@ -4,13 +4,16 @@ public class Message {
 
     private String msg;
     private boolean isSend;
+    private long msgID;
 
-    public Message(String msg, boolean isSend) {
+    public Message(String msg, boolean isSend, long msgID) {
         this.msg = msg;
         this.isSend = isSend;
+        this.msgID = msgID;
     }
 
-    public Message() {
+    public Message(String msg, boolean isSend) {
+        this(msg, isSend,0);
     }
 
     public String getMsg() {
@@ -27,5 +30,13 @@ public class Message {
 
     public void setSend(boolean send) {
         isSend = send;
+    }
+
+    public long getMsgID(){
+        return msgID;
+    }
+
+    public void setMsgID(long msgId){
+        this.msgID = msgID;
     }
 }

@@ -24,7 +24,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public DatabaseHelper(Context context) {
         super(context, DB_NAME, null, 2);
     }
-
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(CREATE_TABLE);
@@ -36,9 +35,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
+
     public void onDowngrada() {
 
     }
+
 
 //    public void printCursor( Cursor c) {
 //
@@ -67,14 +68,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return result != -1; //if result = -1 data doesn't insert
     }
 
-    //view data
-    public Cursor viewData(){
-        SQLiteDatabase db = this.getReadableDatabase();
-        String query = "Select * from "+DB_TABLE;
-        Cursor cursor = db.rawQuery(query, null);
-        cursor.moveToNext();
-
-        Log.v("Cursor Object", DatabaseUtils.dumpCursorToString(cursor));
-        return cursor;
-    }
+//    //view data
+//    public Cursor viewData(){
+//        SQLiteDatabase db = this.getReadableDatabase();
+//        String query = "Select * from "+DB_TABLE;
+//        Cursor cursor = db.rawQuery(query, null);
+//        printCursor(cursor);
+//        return cursor;
+//
+//        //Log.v("Cursor Object", DatabaseUtils.dumpCursorToString(cursor));
+//        //return cursor;
+//    }
 }
